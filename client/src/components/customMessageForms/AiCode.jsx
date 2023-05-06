@@ -5,7 +5,7 @@ import { useState } from "react";
 const AiCode = ({ props, activeChat }) => {
   const [message, setMessage] = useState("");
   const [attachment, setAttachment] = useState("");
-  const [trigger] = usePostAiCodeMutation();
+  const [triggerCode] = usePostAiCodeMutation();
 
   const handleChange = (e) => {
     setMessage(e.target.value);
@@ -25,7 +25,7 @@ const AiCode = ({ props, activeChat }) => {
       activeChatId: activeChat.id,
     };
     props.onSubmit(form);
-    trigger(form);
+    triggerCode(form);
     setMessage("");
     setAttachment("");
   };
