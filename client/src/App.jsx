@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Chat from "@/components/chat";
 import Login from "@/components/login";
 
@@ -10,30 +10,24 @@ function App() {
 
   return (
     <div className="app">
-      <HashRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              isAuth ? (
-                <Navigate to="/chat" />
-              ) : (
-                <Login setUser={setUser} setSecret={setSecret} />
-              )
-            }
-          />
-          <Route
-            path="/chat"
-            element={
-              isAuth ? (
-                <Chat user={user} secret={secret} />
-              ) : (
-                <Navigate to="/" />
-              )
-            }
-          />
-        </Routes>
-      </HashRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            isAuth ? (
+              <Navigate to="/chat" />
+            ) : (
+              <Login setUser={setUser} setSecret={setSecret} />
+            )
+          }
+        />
+        <Route
+          path="/chat"
+          element={
+            isAuth ? <Chat user={user} secret={secret} /> : <Navigate to="/" />
+          }
+        />
+      </Routes>
     </div>
   );
 }
