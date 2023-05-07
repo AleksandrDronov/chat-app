@@ -8,7 +8,6 @@ import { Configuration, OpenAIApi } from "openai";
 import openAiRoutes from "./routes/openia.js";
 import authRoutes from "./routes/auth.js"
 
-
 dotenv.config();
 
 const app = express();
