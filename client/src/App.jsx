@@ -12,7 +12,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route
-          path="/"
+          path="/chat-app"
           element={
             isAuth ? (
               <Navigate to="/chat" />
